@@ -4,6 +4,29 @@
 }
 
 #fenIn { 
- width: 480px;
- left: 60px;
+	width: 480px;
+	left: 60px;
+	border: .5px solid #242939;
+	line-height: 1.7;
+	border-radius: .25rem;
+}
+
+.grid-container {
+	top: 50%;
+	left: 50%;
+	text-align: center;
+}
+
+#SetFen {
+	display: inline-block;
+	background-color: #242939;
+	border: none;
+	color: white;
+	white-space: nowrap;
+	vertical-align: middle;
+	font-weight: 400;
+	padding: .375rem .75rem;
+	font-size: 1rem;
+	border-radius: .25rem;
+	transition: .15s;
 }

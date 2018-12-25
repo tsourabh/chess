@@ -20,18 +20,6 @@ GameBoard.moveList = new Array(MAXDEPTH * MAXPOSITIONMOVES);
 GameBoard.moveScores = new Array(MAXDEPTH * MAXPOSITIONMOVES);
 GameBoard.moveListStart = new Array(MAXDEPTH);
 
-/*
-pce * 10 + pceNum
-
-pceNum[bP] = 4;
-
-for(num = 0 to 3) {
-	bP * 10 + num;   70,71,72,73
-	sq = pList[70]....
-}
-
-*/
-
 function PrintBoard() {
 	
 	var sq,file,rank,piece;
@@ -252,4 +240,43 @@ function ParseFen(fen) {
 	
 	GameBoard.posKey = GeneratePosKey();	
 	UpdateListsMaterial();
+}
+
+function SqAttacked(sq, side) {
+	var pce;
+	var t_sq;
+	var index;
+
+	if(side == COLOURS.WHITE) {
+		if (GameBoard.pieces[sq-11] == PIECES.wP || GameBoard.pieces[sq-9] == PIECES.wP) {
+			return BOOL.TRUE;
+		} 
+	} else {
+		if (GameBoard.pieces[sq+11] == PIECES.bP || GameBoard.pieces[sq+9] == PIECES.bP) {
+			return BOOL.TRUE;
+		}
+	}
+
+	for (index=0; index<8; index++){
+		pce = GameBoard.pieces[sq + knDir[index]];
+		if (pce != SQUARES.OFFBOARD && PieceCol[pce] == side && PieceKnight[pce] == BOOL.TRUE ){
+			return BOOL.TRUE;
+		}
+	}
+
+	for(index=0; index<4; ++index) {
+		dir = rkdir[index];
+		t_sq = sq + dir;
+		pce = GameBoard.pieces[t_sq];
+		while(pce != SQUARES.OFFBOARD){
+			if(pce != PIECES.EMPTY) {
+				if(PieceRookQueen[pce] == BOOL.TRUE && PieceCol[pce] == side) {
+					return BOOL.TRUE;
+				}
+				break;
+			}
+			t_sq += dir;
+			pce = GameBoard.pieces[t_sq];
+		}
+	}
 }

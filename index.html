@@ -2,18 +2,21 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
-		<title>JSChess</title>	
-		<link href="styles.css" rel="stylesheet" type="text/css">	
+		<title>Chess</title>
+		<link href="style.css" rel="stylesheet" type="text/css">	
 		<script type="text/javascript"> if (!window.console) console = {log: function() {}}; </script>
 	</head>
 	<body>
-		<header>
-			<h3>JS Chess</h3>			
-		</header>	
-		<div id="FenInDiv">
-			Fen:<br/>
-			<input type="text" id="fenIn"/>		
-			<button type="button" id="SetFen">Set Position</button>	
+		<div class="grid-container">
+			<div class="grid-item">
+				<header>
+					<h3>Chess</h3>			
+				</header>	
+				<div id="FenInDiv">
+					<input type="text" id="fenIn"/>		
+					<button type="button" id="SetFen">Set Position</button>	
+				</div>
+			</div>
 		</div>	
 		
 		<script src="js/jquery.js"></script>		
