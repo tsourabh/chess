@@ -83,3 +83,16 @@ return Sq64ToSq120[(sq64)];
 function PCEINDEX(pce, pceNum) {
 return (pce * 10 + pceNum);
 }
+
+
+function FROMSQ(m) { return m & 0x7F; }
+function TOSQ(m) { return ( m >> 7 ) & 0x7F; }
+function CAPTURED(m) { return ( m >> 14 ) & 0x7F; }
+function PROMOTED(m) { return ( m >> 20 ) & 0x7F; }
+
+var MFLAGEP = 0x40000;
+var MFLAGPS = 0x80000;
+var MFLAGCA = 0x100000;
+var MFLAGCAP = 0x7C000;
+var MFLAGPROM = 0xF00000;
+var NOMOVE = 0;

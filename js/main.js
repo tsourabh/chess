@@ -3,6 +3,7 @@ $(function() {
 	console.log("Main Init Called");	
 	ParseFen(START_FEN);
 	PrintBoard();
+	PrintSqAttacked();
 });
 
 function InitFilesRanksBrd() {
