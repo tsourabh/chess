@@ -375,12 +375,17 @@ function SqAttacked(sq, side) {
 		if(pce != SQUARES.OFFBOARD && PieceCol[pce] == side && PieceKing[pce] == BOOL.TRUE) {
 			return BOOL.TRUE;
 		}
+
+		console.log("sourabh")
 	}
 	
 	return BOOL.FALSE;
 	
 
 }
+
+
+
 
 
 
